@@ -41,10 +41,9 @@ body {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
-/* Animated Rainbow Border */
+/* Animated Border */
 .card::before {
   content: "";
   position: absolute;
@@ -56,7 +55,6 @@ body {
   z-index: -1;
 }
 
-/* Inner Background */
 .card::after {
   content: "";
   position: absolute;
@@ -76,7 +74,9 @@ body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
+  object-fit: cover;
   animation: zoom 2s infinite alternate;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 @keyframes zoom {
@@ -126,6 +126,7 @@ h2 {
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
+  animation: pulse 1.5s infinite;
   transition: 0.3s;
 }
 
@@ -133,9 +134,16 @@ h2 {
   width: 22px;
 }
 
+/* Button Zoom Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #1da1f2;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px #1da1f2;
 }
 
 /* Footer */
@@ -171,7 +179,7 @@ h2 {
     Free Joining Ends In 30 Seconds
   </div>
 
-  <!-- Button -->
+  <!-- Telegram Button -->
   <a href="https://t.me/+Plrml4b52SZkN2Jl" class="btn">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
     JOIN FREE TELEGRAM
@@ -185,14 +193,14 @@ h2 {
 </div>
 
 <script>
-// Subscriber Counter (Slow Natural Growth)
+// Subscriber Counter
 let count = 30000;
 setInterval(() => {
   count += Math.floor(Math.random() * 2);
   document.getElementById("counter").innerText = count;
 }, 2000);
 
-// Countdown Timer (30 sec)
+// Countdown Timer
 let time = 30;
 let timer = document.getElementById("timer");
 
